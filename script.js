@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             switch (linkType) {
                 case "youtube":
-                    window.open("https://www.youtube.com/@DEIN_KANAL", "_blank");
+                    window.open("https://www.youtube.com/@Yvaine_Main", "_blank");
                     break;
                 case "tiktok":
                     window.open("https://www.tiktok.com/@DEIN_PROFIL", "_blank");
