@@ -1,10 +1,10 @@
 /* ==========================================
-   1. MINECRAFT FONT EINBINDEN
+   1. Minecraft Font
    ========================================== */
+
 @font-face {
     font-family: 'Minecraft';
-    src: url('https://db.onlinewebfonts.com/t/c1afbf6a549a1d1675a8de5b8eab2e1c.woff2') format('woff2'),
-         url('https://db.onlinewebfonts.com/t/c1afbf6a549a1d1675a8de5b8eab2e1c.woff') format('woff');
+    src: url('Minecraft.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
