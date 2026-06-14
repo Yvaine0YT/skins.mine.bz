@@ -30,14 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 case "discord":
                     window.open("https://discord.gg/DEIN_INVITE_LINK", "_blank");
                     break;
-                case "donate":
-                    // Ersetze dies mit deinem Ko-fi oder PayPal.me Link
-                    window.open("https://ko-fi.com/DEIN_NUTZERNAME", "_blank");
-                    break;
-                case "impressum":
-                    // Leitet im selben Tab auf deine Unterseite weiter
-                    window.location.href = "imprint.html";
-                    break;
                 default:
                     console.log("Unbekannter Link geklickt");
             }
