@@ -1,4 +1,17 @@
-/* Grundlegendes Reset für einheitliche Abstände */
+/* ==========================================
+   1. MINECRAFT FONT EINBINDEN
+   ========================================== */
+@font-face {
+    font-family: 'Minecraft';
+    src: url('https://db.onlinewebfonts.com/t/c1afbf6a549a1d1675a8de5b8eab2e1c.woff2') format('woff2'),
+         url('https://db.onlinewebfonts.com/t/c1afbf6a549a1d1675a8de5b8eab2e1c.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ==========================================
+   2. GLOBALE EINSTELLUNGEN (RESET)
+   ========================================== */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,27 +19,44 @@
 }
 
 body {
-    font-family: sans-serif;
+    font-family: 'Minecraft', 'Courier New', monospace; 
     background-color: #3a3a3a; /* Dunkelgrauer Hintergrund der Seite */
-    color: #000;
+    color: #ffffff;            /* Weiße Schrift für besseren Kontrast */
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Füllt immer die gesamte Bildschirmhöhe */
+    min-height: 100vh;         /* Füllt immer die gesamte Bildschirmhöhe */
+    
+    /* Schaltet das Weichzeichnen der Pixel-Schriftart aus */
+    image-rendering: pixelated;
+    font-smooth: never;
+    -webkit-font-smoothing: none;
 }
 
-/* --- HEADER --- */
+/* Zwingt alle Buttons, ebenfalls die Minecraft-Schrift zu nutzen */
+button {
+    font-family: 'Minecraft', 'Courier New', monospace;
+    -webkit-font-smoothing: none;
+}
+
+/* ==========================================
+   3. HEADER (OBEN)
+   ========================================== */
 header {
     background-color: #5c3d24; /* Brauner Balken */
     padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 4px solid #2e1e12; /* Dunklerer Rand unten für 3D-Effekt */
 }
 
 header h1 {
     font-size: 24px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    color: #ffffff;
+    /* Typischer Minecraft-Textschatten (nach unten rechts versetzt) */
+    text-shadow: 3px 3px 0px #2e1e12; 
 }
 
 .nav-buttons {
@@ -36,21 +66,32 @@ header h1 {
 
 .btn-nav {
     background-color: #929292;
-    border: none;
+    color: #000000;
+    border: 3px solid #bcbcbc;
+    border-right-color: #444444;
+    border-bottom-color: #444444; /* Minecraft Button-Stil */
     padding: 10px 20px;
     font-weight: bold;
+    font-size: 14px;
     cursor: pointer;
     text-transform: uppercase;
-    transition: background-color 0.2s;
+    text-shadow: 1px 1px 0px #ffffff;
 }
 
 .btn-nav:hover {
-    background-color: #b0b0b0; /* Heller beim Drüberfahren */
+    background-color: #a8a8a8;
 }
 
-/* --- MAIN INHALT --- */
+.btn-nav:active {
+    /* Simuliert das Herunterdrücken des Buttons */
+    border-color: #444444 #bcbcbc #bcbcbc #444444; 
+}
+
+/* ==========================================
+   4. MAIN BEREICH (LAYOUT GRID)
+   ========================================== */
 main {
-    flex: 1; /* Schiebt den Footer nach ganz unten */
+    flex: 1; /* Schiebt den Footer automatisch nach ganz unten */
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -60,25 +101,28 @@ main {
 /* Obere Reihe (Zweispaltiges Grid) */
 .top-row {
     display: grid;
-    grid-template-columns: 200px 1fr; /* Links fest (200px), rechts flexibel (Rest) */
+    grid-template-columns: 200px 1fr; /* Links fest (200px), rechts flexibel */
     gap: 30px;
 }
 
-/* Allgemeine graue Inhalts-Boxen */
+/* Allgemeine graue Inhalts-Boxen (IDK WHAT TO PUT HERE / SAME GOES HERE) */
 .content-box {
-    background-color: #8c8c8c; /* Mittleres Sichtgrau */
+    background-color: #8c8c8c; 
+    color: #000000;
+    border: 4px solid #555555;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 32px;
-    font-weight: bold;
+    font-size: 28px;
     padding: 40px;
     text-align: center;
+    text-shadow: 2px 2px 0px #c0c0c0;
 }
 
-/* Speziell für das "Skin of the Day" Modul */
+/* Speziell für das "Skin of the Day" Modul (Olivgrüner Kasten) */
 .skin-box {
-    background-color: #726e29; /* Olivgrüner Hintergrundkasten */
+    background-color: #726e29; 
+    border: 4px solid #3c3a14;
     padding: 15px;
     display: flex;
     flex-direction: column;
@@ -88,30 +132,40 @@ main {
 
 .yellow-square {
     background-color: #ffff00; /* Das neongelbe Quadrat */
+    border: 4px solid #b2b200;
     width: 100%;
-    aspect-ratio: 1 / 1; /* Sorgt dafür, dass es immer quadratisch bleibt */
+    aspect-ratio: 1 / 1; /* Hält das Element perfekt quadratisch */
 }
 
 .skin-box span {
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 12px;
+    color: #ffffff;
     text-transform: uppercase;
+    text-shadow: 2px 2px 0px #3c3a14;
+    text-align: center;
 }
 
 /* Untere große Inhaltsbox */
 .bottom-box {
-    min-height: 250px; /* Sorgt für die nötige Höhe im unteren Bereich */
+    min-height: 250px; /* Gibt der unteren Box eine schöne Höhe */
 }
 
-/* --- FOOTER --- */
+/* ==========================================
+   5. FOOTER (UNTEN)
+   ========================================== */
 footer {
     background-color: #2e2e2e; /* Ganz dunkles Anthrazit */
     padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-weight: bold;
-    color: #111;
+    border-top: 4px solid #1a1a1a;
+}
+
+footer p {
+    font-size: 14px;
+    color: #aaaaaa;
+    text-shadow: 2px 2px 0px #111111;
 }
 
 .footer-buttons {
@@ -121,14 +175,22 @@ footer {
 
 .btn-footer {
     background-color: #79aebc; /* Blau-graue Buttons */
-    border: none;
+    color: #000000;
+    border: 3px solid #a2cbd4;
+    border-right-color: #3f6068;
+    border-bottom-color: #3f6068;
     padding: 8px 15px;
+    font-size: 12px;
     font-weight: bold;
     cursor: pointer;
     text-transform: uppercase;
-    transition: opacity 0.2s;
+    text-shadow: 1px 1px 0px #e0f2f5;
 }
 
 .btn-footer:hover {
-    opacity: 0.9;
+    background-color: #8cbcc9;
+}
+
+.btn-footer:active {
+    border-color: #3f6068 #a2cbd4 #a2cbd4 #3f6068;
 }
