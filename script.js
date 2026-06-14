@@ -1,22 +1,46 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // Logik für die Header-Navigation
+    // Logik für die Header-Navigation (Skins, Order, etc.)
     const navButtons = document.querySelectorAll(".btn-nav");
     navButtons.forEach(button => {
         button.addEventListener("click", (e) => {
             const page = e.target.getAttribute("data-page");
             console.log(`Navigiere zu Seite: ${page}`);
-            // Hier kannst du später echten Code einbauen (z.B. Seiten wechseln)
+            
+            // Beispielhaft für den Login-Button:
+            if (page === "login") {
+                window.location.href = "login.html"; 
+            }
         });
     });
 
-    // Logik für die Footer-Buttons
+    // Logik für die Footer-Buttons (Socials, Donate, Impressum)
     const footerButtons = document.querySelectorAll(".btn-footer");
     footerButtons.forEach(button => {
         button.addEventListener("click", (e) => {
             const linkType = e.target.getAttribute("data-link");
-            console.log(`Footer-Link geklickt: ${linkType}`);
-            // Beispiel: alert(`Du öffnest jetzt ${linkType}`);
+
+            switch (linkType) {
+                case "youtube":
+                    window.open("https://www.youtube.com/@DEIN_KANAL", "_blank");
+                    break;
+                case "tiktok":
+                    window.open("https://www.tiktok.com/@DEIN_PROFIL", "_blank");
+                    break;
+                case "discord":
+                    window.open("https://discord.gg/DEIN_INVITE_LINK", "_blank");
+                    break;
+                case "donate":
+                    // Ersetze dies mit deinem Ko-fi oder PayPal.me Link
+                    window.open("https://ko-fi.com/DEIN_NUTZERNAME", "_blank");
+                    break;
+                case "impressum":
+                    // Leitet im selben Tab auf deine Unterseite weiter
+                    window.location.href = "imprint.html";
+                    break;
+                default:
+                    console.log("Unbekannter Link geklickt");
+            }
         });
     });
 
