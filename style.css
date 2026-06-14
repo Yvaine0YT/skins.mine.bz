@@ -1,0 +1,134 @@
+/* Grundlegendes Reset für einheitliche Abstände */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #3a3a3a; /* Dunkelgrauer Hintergrund der Seite */
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Füllt immer die gesamte Bildschirmhöhe */
+}
+
+/* --- HEADER --- */
+header {
+    background-color: #5c3d24; /* Brauner Balken */
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-nav {
+    background-color: #929292;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.2s;
+}
+
+.btn-nav:hover {
+    background-color: #b0b0b0; /* Heller beim Drüberfahren */
+}
+
+/* --- MAIN INHALT --- */
+main {
+    flex: 1; /* Schiebt den Footer nach ganz unten */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Abstand zwischen oberer Reihe und unterer Box */
+}
+
+/* Obere Reihe (Zweispaltiges Grid) */
+.top-row {
+    display: grid;
+    grid-template-columns: 200px 1fr; /* Links fest (200px), rechts flexibel (Rest) */
+    gap: 30px;
+}
+
+/* Allgemeine graue Inhalts-Boxen */
+.content-box {
+    background-color: #8c8c8c; /* Mittleres Sichtgrau */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-weight: bold;
+    padding: 40px;
+    text-align: center;
+}
+
+/* Speziell für das "Skin of the Day" Modul */
+.skin-box {
+    background-color: #726e29; /* Olivgrüner Hintergrundkasten */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.yellow-square {
+    background-color: #ffff00; /* Das neongelbe Quadrat */
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Sorgt dafür, dass es immer quadratisch bleibt */
+}
+
+.skin-box span {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Untere große Inhaltsbox */
+.bottom-box {
+    min-height: 250px; /* Sorgt für die nötige Höhe im unteren Bereich */
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #2e2e2e; /* Ganz dunkles Anthrazit */
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    color: #111;
+}
+
+.footer-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-footer {
+    background-color: #79aebc; /* Blau-graue Buttons */
+    border: none;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: opacity 0.2s;
+}
+
+.btn-footer:hover {
+    opacity: 0.9;
+}
